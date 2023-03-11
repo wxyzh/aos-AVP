@@ -37,6 +37,14 @@ jobs:
          repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v6_1.xml
          repo sync -j 4
          repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV'
+         
+    - name: create keystore and properties file for signing the app   
+      run: |
+        echo "storeFile=/home/runner/work/_temp/keystore/test.jks" >> /home/runner/work/aos-AVP/aos-AVP/nova/Video/keystore.properties
+        echo "keyAlias=$SIGNING_KEY_ALIAS" >> /home/runner/work/aos-AVP/aos-AVP/nova/Video/keystore.properties
+        echo "storePassword=$SIGNING_STORE_PASSWORD" >> /home/runner/work/aos-AVP/aos-AVP/nova/Video/keystore.properties
+        echo "keyPassword=$SIGNING_KEY_PASSWORD" >> /home/runner/work/aos-AVP/aos-AVP/nova/Video/keystore.properties
+
     - name: build
       run: |
         cd nova/Video
