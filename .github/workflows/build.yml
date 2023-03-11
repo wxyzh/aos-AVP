@@ -40,10 +40,10 @@ jobs:
 
     - name: Decode keystore 
       uses: timheuer/base64-to-file@v1.2
-        with:
-          fileName: 'keystore/test.keystore'
-          fileDir: '/home/runner/work/_temp/'
-          encodedString: ${{ secrets.KEYSTORE }}
+      with:
+        fileName: 'keystore/test.keystore'
+        fileDir: '/home/runner/work/_temp/'
+        encodedString: ${{ secrets.KEYSTORE }}
                    
     - name: create keystore and properties file for signing the app   
       run: |
