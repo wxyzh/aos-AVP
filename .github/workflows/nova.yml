@@ -43,3 +43,7 @@ jobs:
       run: |
         cd nova/Video
         ./gradlew aNR
+    - uses: actions/upload-artifact@v3
+      with:
+        name: update
+        path: /home/runner/work/aos-AVP/aos-AVP/nova/Video/build/outputs/apk/noamazon/release/
